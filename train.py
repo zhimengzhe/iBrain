@@ -64,7 +64,7 @@ def trainLstm():
     brain.trainLstmNetwork(mnist)
 
 def main():
-    OneCnn()
+    trainCnn()
 
 if __name__ == '__main__':
 	main()

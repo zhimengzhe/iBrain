@@ -138,7 +138,7 @@ def train_network(batch_size = 120,training_iters=800,learning_rate=0.001):
     tf.summary.scalar('test accuracy', accuracyte)
 
     merged = tf.summary.merge_all()
-    init = tf.initialize_all_variables()
+    init = tf.global_variables_initializer()
 
     print 'start training...'
 
@@ -148,9 +148,13 @@ def train_network(batch_size = 120,training_iters=800,learning_rate=0.001):
         step = 1
         while step< training_iters:
             batch_xs, batch_ys = mnist.train.next_batch(batch_size)
-            #print np.shape(batch_xs),np.shape(batch_ys)
+            # print batch_xs, batch_ys
+            # print np.shape(batch_xs),np.shape(batch_ys)
+            # exit()
             batch_xs=np.reshape(batch_xs,[np.shape(batch_xs)[0],28,28,1])
-
+            print batch_xs
+            print batch_ys
+            exit()
             sess.run(optimizer, feed_dict={x: batch_xs, y: batch_ys})
             if step % 10 == 0:
                 summary,acc = sess.run([merged,accuracytr], feed_dict={x: batch_xs, y: batch_ys})
