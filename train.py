@@ -63,8 +63,24 @@ def trainLstm():
     brain = brain.getInstance('lstm', '')
     brain.trainLstmNetwork(mnist)
 
+def trainFace():
+    from info import Info
+    info = Info()
+    info.getMyFace()
+    info.setOtherFace()
+    brain = Brain()
+    brain = brain.getInstance('face')
+    brain.faceTrain()
+
+def isMyFace():
+    brain = Brain()
+    brain = brain.getInstance('face')
+    brain.isMyFace()
+
 def main():
-    trainCnn()
+    # trainCnn()
+    # trainFace()
+    isMyFace()
 
 if __name__ == '__main__':
 	main()

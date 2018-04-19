@@ -49,4 +49,7 @@ class Brain:
         elif type == 'lstm':
             from neuron.lstm import Lstm
             self.cls = Lstm()
+        elif type == 'face':
+            from neuron.face import Face
+            self.cls = Face()
         return self.cls
